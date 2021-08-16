@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    box-sizing: border-box;
+}
+
+/* Header */
+.header-left {
+    flex: 0.3;
+}
+
+.header-mid {
+    flex: 0.4;
+}
+
+.header-right {
+    flex: 0.3;
+}
+
+/* Product */
+.product {
+    @apply bg-gray-200 max-w-sm flex flex-col items-center justify-between rounded-md shadow-lg;
+}
