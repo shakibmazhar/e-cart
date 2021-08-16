@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Cart from "./components/Cart";
+import Error from "./components/Error";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import ProductDesc from "./components/ProductDesc";
@@ -23,11 +24,14 @@ function App() {
                 <Route exact path="/">
                     <Home />
                 </Route>
-                <Route path="/products/:id">
+                <Route exact path="/products/:id">
                     <ProductDesc />
                 </Route>
-                <Route path="/user/cart">
+                <Route exact path="/user/cart">
                     <Cart />
+                </Route>
+                <Route path="/*">
+                    <Error />
                 </Route>
             </Switch>
         </Router>
