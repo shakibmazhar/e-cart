@@ -3,7 +3,7 @@ import CurrencyFormat from "react-currency-format";
 import { useAppContext } from "../contextAPI/context";
 
 const Subtotal = () => {
-    const { userCart, totalPrice, dispatch } = useAppContext();
+    const { userCart, totalPrice, setTotalPrice } = useAppContext();
 
     // Total price calculator
     useEffect(() => {
@@ -14,10 +14,7 @@ const Subtotal = () => {
                 return null;
             });
         }
-        dispatch({
-            type: "SET_TOTAL",
-            payload: total,
-        });
+        setTotalPrice(total);
     }, [userCart]);
 
     return (

@@ -49,6 +49,11 @@ const reducer = (state, action) => {
                 ...state,
                 totalPrice: action.payload,
             };
+        case "GET-CART-FROM-SESSION":
+            return {
+                ...state,
+                userCart: action.payload,
+            };
         default:
             return {
                 ...state,

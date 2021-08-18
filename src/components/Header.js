@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ecart from "../assets/e-cart.png";
 import SearchRoundedIcon from "@material-ui/icons/SearchRounded";
 import { Avatar } from "@material-ui/core";

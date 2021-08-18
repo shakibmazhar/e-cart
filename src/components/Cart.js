@@ -16,8 +16,8 @@ const Cart = () => {
                 </h2>
 
                 <div className="w-full">
-                    {userCart.length > 0 ? (
-                        userCart.map((item) => {
+                    {userCart?.length > 0 ? (
+                        userCart?.map((item) => {
                             return (
                                 <CartItem
                                     key={item.orderId}

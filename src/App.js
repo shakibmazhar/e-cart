@@ -9,13 +9,27 @@ import { useAppContext } from "./contextAPI/context";
 import products from "./products/products";
 
 function App() {
-    const { dispatch } = useAppContext();
+    const { userCart, setProducts, getCartData } = useAppContext();
+
+    // Get products from products
     useEffect(() => {
-        dispatch({
-            type: "SET_PRODUCTS",
-            payload: products,
-        });
+        setProducts(products);
     }, [products]);
+
+    // Push user cart to loacl storage
+    useEffect(() => {
+        if (userCart?.length > 0) {
+            localStorage.setItem("cartData", JSON.stringify(userCart));
+        }
+    }, [userCart]);
+
+    // Get user cart data from localstorage
+    useEffect(() => {
+        const cartData = JSON.parse(localStorage.getItem("cartData"));
+        if (cartData.length > 0) {
+            getCartData(cartData);
+        }
+    }, []);
 
     return (
         <Router>

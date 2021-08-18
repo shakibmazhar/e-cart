@@ -17,6 +17,22 @@ const AppProvider = ({ children }) => {
     //Use reducer
     const [state, dispatch] = useReducer(reducer, initialState);
 
+    // Set products from products.js
+    const setProducts = (products) => {
+        dispatch({
+            type: "SET_PRODUCTS",
+            payload: products,
+        });
+    };
+
+    // Get cart data from local storage
+    const getCartData = (cartData) => {
+        dispatch({
+            type: "GET-CART-FROM-SESSION",
+            payload: cartData,
+        });
+    };
+
     // Add an item to cart
     const addToCart = (id, name, image, price, rating) => {
         const newCartItem = {
@@ -58,6 +74,14 @@ const AppProvider = ({ children }) => {
         });
     };
 
+    // Set total price
+    const setTotalPrice = (total) => {
+        dispatch({
+            type: "SET_TOTAL",
+            payload: total,
+        });
+    };
+
     return (
         <appContext.Provider
             value={{
@@ -67,6 +91,9 @@ const AppProvider = ({ children }) => {
                 increaseQuantity,
                 decreaseQuantity,
                 removeItem,
+                setProducts,
+                getCartData,
+                setTotalPrice,
             }}
         >
             {children}
