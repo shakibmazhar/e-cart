@@ -25,8 +25,8 @@ function App() {
 
     // Get user cart data from localstorage
     useEffect(() => {
-        const cartData = JSON.parse(localStorage.getItem("cartData"));
-        if (cartData.length > 0) {
+        const cartData = JSON.parse(localStorage?.getItem("cartData"));
+        if (cartData) {
             getCartData(cartData);
         }
     }, []);
